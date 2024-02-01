@@ -1,22 +1,17 @@
 import 'dart:io';
 
 void main() {
-  print("Your input: ");
-  String input = stdin.readLineSync() ?? '';
   try {
-    double points = double.parse(input);
+    print("Nhập tên công ty: ");
+    String companyName = stdin.readLineSync() ?? '';
 
-    if (points >= 8.0 && points <= 10.0)
-      print("Gioi");
-    else if (points >= 6.5 && points < 8.0)
-      print("Kha");
-    else if (points >= 5.0 && points < 6.5)
-      print("Trung binh");
-    else if (points >= 0 && points < 5.0)
-      print("Yeu");
-    else
-      print("Điểm không hợp lệ");
+    if (companyName.length >= 12) {
+      String ans = companyName.substring(11, 12);
+      print("Ký tự thứ 12 của công ty: $ans");
+    } else {
+      throw Exception("Chuỗi không đủ dài");
+    }
   } catch (e) {
-    print("Nội dung không phù hợp");
+    print("Đã xảy ra một exception: $e");
   }
 }
